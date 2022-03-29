@@ -1,0 +1,11 @@
+{
+    "include": [
+        "./src/**/*"
+    ],
+    "compilerOptions": {
+        "target": "es6",
+        "outDir": "./dist",
+        "module": "ES2015",
+        // "strict": true
+    } 
+}

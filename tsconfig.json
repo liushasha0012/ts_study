@@ -6,6 +6,7 @@
         "target": "es6",
         "outDir": "./dist",
         "module": "ES2015",
-        // "strict": true
+        "strict": true,
+        "strictFunctionTypes": false
     } 
 }

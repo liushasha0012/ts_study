@@ -105,8 +105,27 @@ interface OriginObj {
     b: number,
     c: number
 }
-
+// 同态类型
 type ReadonlyObj = Readonly<OriginObj>;  // 只读映射
 type PartialObj = Partial<OriginObj>; // 可选映射
 type PickObj = Pick<OriginObj, 'a'>
+
+// 非同态类型
+type RecordObj = Record<'x' | 'y', OriginObj>;
+
+// 条件类型 T extends U ? X : Y;
+
+type conditionObj<T> = T extends string ? 'string' : 
+                        T extends number ? 'number' : 
+                        T extends boolean ? 'boolean' : 
+                        T extends undefined ? 'undefined' : 
+                        T extends Function ? 'function' : 'object'
+
+type conditionType = conditionObj<OriginObj>;
+type conditionType2 = conditionObj<1>;
+type T3 = conditionObj<string | number | (string|number)[]>
+
+// 类型过滤的实现
+type Diff<T, U> = T extends U ? never : T; // 过滤掉 T 中可以实现 U 的类型。
+type T4 = Diff<'a' | 'b' | 'c', 'a' | 'e'>;
 

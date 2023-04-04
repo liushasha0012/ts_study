@@ -1,5 +1,5 @@
 let a: string = 's';
-a = null;  // 字符串类型兼容了 null 类型
+// a = null;  // 字符串类型兼容了 null 类型
 
 // 接口的兼容性
 interface X {
@@ -37,7 +37,7 @@ let handler2 = (a: number) => {}
 hof(handler2);
 
 let handler3 = (a:number, b: number, c: number) => {}
-hof(handler3);
+// hof(handler3);
 
 // 可选参数和剩余参数
 let handler4 = (p1: number, p2: number) => {}
@@ -50,7 +50,7 @@ handler6 = handler4; // 剩余参数兼容固定参数
 handler6= handler5; // 剩余参数兼容可选参数
 
 let handler7 = (a: string) => {}
-hof(handler7);
+// hof(handler7);
 
 interface p1 {
     x: number,
@@ -90,7 +90,7 @@ enum Color {
 
 let fruit: Fruit.Apple = 1; // 枚举类型和数字类型兼容
 let no: number = Fruit.Apple;
-let co: Color.Blue = Fruit.Apple;  // 不同枚举类型之间不兼容
+// let co: Color.Blue = Fruit.Apple;  // 不同枚举类型之间不兼容
 let num: number = 0;
 num = Color.Blue; // 数字类型和枚举类型兼容
 

@@ -128,4 +128,7 @@ type T3 = conditionObj<string | number | (string|number)[]>
 // 类型过滤的实现
 type Diff<T, U> = T extends U ? never : T; // 过滤掉 T 中可以实现 U 的类型。
 type T4 = Diff<'a' | 'b' | 'c', 'a' | 'e'>;
-
+type T5 = Extract<'a' | 'b' | 'c', 'a' | 'e'>;
+type T6 = Exclude<'a' | 'b' | 'c', 'a' | 'e'>;
+type T7 = NonNullable<undefined|null|'a'|number>;
+type T8 = ReturnType<()=>string>;

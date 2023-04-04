@@ -39,9 +39,9 @@ let boy: Boy = {
 
  interface AutoInterface extends Auto {}
 
- class Bus implements AutoInterface {
-    state = 2;
- }
+//  class Bus implements AutoInterface {
+//     state = 2;
+//  }
 
  // 子类也可以实现接口
  class AutoChild extends Auto implements AutoInterface {} // 这种时候不需要显示声明 state，因为子类继承了超类 Auto 中的属性

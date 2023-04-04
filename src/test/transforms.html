@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css transform</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            margin: auto;
+            margin-top: 50px;
+            background-image: linear-gradient(black, pink);
+        }
+
+        .rotate {
+            transform: rotate(30deg) scale(0.5);
+        }
+
+        .scale {
+            transform: scale(-1);
+        }
+
+        .skew {
+            transform: skewY(10deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="rotate"></div>
+    <div class="scale"></div>
+    <div class="skew"></div>
+    <!-- <script src="./test.js"></script> -->
+    <script>
+        function TreeNode(val, left, right) {
+            this.val = (val === undefined ? 0 : val)
+            this.left = (left === undefined ? null : left)
+            this.right = (right === undefined ? null : right)
+        }
+
+        // function levelOrder(root) {
+        //     const stack = [];
+        //     const res = [];
+        //     if (root === null) {
+        //         return res;
+        //     }
+        //     stack.push(root);
+        //     while (stack.length) {
+        //         let level = [];
+        //         const size = stack.length;
+        //         for (let i = 0; i < size; i++) {
+        //             const node = stack.shift();
+        //             level.push(node.val);
+        //             if (node.left) {
+        //                 stack.push(node.left)
+        //             }
+        //             if (node.right) {
+        //                 stack.push(node.right)
+        //             }
+        //             console.log('level===', level);
+        //         }
+        //         res.push(level);
+        //     }
+        //     return res;
+        // };
+        let res = [];
+
+            function inorderTraversal(root) {
+                if (root === null) {
+                    return res;
+                }
+                inorderTraversal(root.left);
+                res = [...res, root.val];
+                console.log(111, res); 
+                inorderTraversal(root.right);
+                return res;
+            }
+        // [1,null,2,3]
+        const rightL = new TreeNode(3);
+        const right = new TreeNode(2, rightL, null);
+        const root = new TreeNode(1, null, right);
+
+        console.log(inorderTraversal(root));
+    </script>
+</body>
+
+</html>

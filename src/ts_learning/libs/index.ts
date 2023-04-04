@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import moduleLib from './module-lib.js';
-import umdLib from './umd-lib';
+import umdLib from './umd-lib.js';
 $('#app').css('color', 'red');
 
 globalLib({x: 2});

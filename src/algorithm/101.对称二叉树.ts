@@ -61,29 +61,54 @@
  * }
  */
 
+// function isSymmetric(root: TreeNode | null): boolean {
+//   // 递归（动态规划）
+//   if(root === null) {
+//     return false;
+//   }
+//   return compareTwoTree(root.left, root.right);
+//   function compareTwoTree(p: TreeNode, q: TreeNode): boolean {
+//     if(p===null && q === null) {
+//       return true;
+//     }
+//     if(p===null||q===null) {
+//       return false;
+//     }
+//     if(p.val === q.val) {
+//       const leftRes = compareTwoTree(p.left, q.right);
+//       const rightRes = compareTwoTree(p.right, q.left);
+//       return leftRes && rightRes;
+//     } else {
+//       return false;
+//     }
+//   }
+// };
 function isSymmetric(root: TreeNode | null): boolean {
-  // 递归（动态规划）
-  if (root === null) {
-    return false;
+  // 迭代
+  if(root === null) return false;
+  const stack: TreeNode[] = [];
+  // 每次推入两个节点
+  stack.push(root);
+  stack.push(root);
+  while(stack.length) {
+    // 推出两个对称的节点做比较
+    const q1 = stack.shift();
+    const q2 = stack.shift();
+    if(q1 === null && q2 === null) {
+      continue;
+    }
+    if(q1 === null || q2===null) {
+      return false;
+    }
+    if(q1.val !== q2.val) {
+      return false;
+    }
+    stack.push(q1.left);
+    stack.push(q2.right);
+    stack.push(q1.right);
+    stack.push(q2.left);
   }
-  let l = root.left;
-  let r = root.right;
-  if (l === null && r === null) {
-    return true;
-  }
-  if (l === null || r === null) {
-    return false;
-  }
-  if (l.val !== r.val) {
-    return false;
-  }
-  const leftRes = isSymmetric(l);
-  const rightRes = isSymmetric(r);
-  return leftRes && rightRes;
-
-  function compareTwoTree(p: TreeNode, q: TreeNode): boolean {
-
-  }
+  return true;
 };
 // @lc code=end
 
